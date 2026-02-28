@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(MacOSNativeApp LANGUAGES CXX OBJCXX)
+project(TataSurya LANGUAGES CXX OBJCXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -10,8 +10,7 @@ find_library(APPKIT_framework AppKit)
 find_library(FOUNDATION_framework Foundation)
 
 # Create the executable
-# Only main.mm is needed because it includes Windowing.mm directly.
-add_executable(${PROJECT_NAME} src/main.mm)
+add_executable(${PROJECT_NAME} src/main.mm src/BaseWindow.mm src/Operator.mm)
 
 # Compile options
 target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra)

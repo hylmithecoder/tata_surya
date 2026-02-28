@@ -1,8 +1,11 @@
+#include "../include/BaseWindow.hpp"
+#include "../include/Operator.hpp"
 #import <Cocoa/Cocoa.h>
 #include <cmath>
 #include <iostream>
 #include <vector>
 
+using namespace Tugas;
 using namespace std;
 
 // --- C++ Domain Layer (Namespaces & Physics) ---
@@ -167,7 +170,7 @@ public:
   }
 
   // Update positions
-  for (auto &body : bodies) {
+  for (SolarPhysics::CelestialBody &body : bodies) {
     // cout << "DT: " << dt << endl;
     body.update(dt);
   }
@@ -187,7 +190,7 @@ public:
   double midY = self.bounds.size.height / 2.0;
 
   // 3. Draw Bodies
-  for (const auto &body : bodies) {
+  for (const SolarPhysics::CelestialBody &body : bodies) {
     CGContextSetRGBFillColor(context, body.r, body.g, body.b, 1.0);
 
     // Convert physics position (center 0,0) to view coordinates + offset
@@ -232,7 +235,7 @@ public:
     windowingAndCocoa = [[WindowingAndCocoa alloc] init];
   }
 
-  NSString *choice = @"2";
+  NSString *choice = @"1";
 
   [self cliChoice:choice withDirtyRect:dirtyRect];
 
@@ -301,7 +304,7 @@ public:
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-  [self intro:nil];
+  // [self intro:nil];
 
   NSRect frame = NSMakeRect(100, 100, 800, 600);
   NSWindowStyleMask style =
@@ -321,6 +324,8 @@ public:
 
   [self.window makeKeyAndOrderFront:nil];
   [NSApp activateIgnoringOtherApps:YES];
+
+  Operator *tugas1 = new Operator();
 
   cout << "Solar System Simulation Started." << endl;
   [self HelloWorld:10];

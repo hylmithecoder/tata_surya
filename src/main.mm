@@ -1,6 +1,11 @@
+#include "../include/BaseWindow.hpp"
+#include "AlertDialog.mm"
 #include "Windowing.mm"
 
 int main(int argc, const char *argv[]) {
+  // string name = showAlertAndGetInput("Masukkan Nama Anda", "Nama");
+  // cout << "Nama Anda: " << name << endl;
+
   // Create the application instance
   NSApplication *app = [NSApplication sharedApplication];
 

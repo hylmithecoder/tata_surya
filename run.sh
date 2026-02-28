@@ -1,1 +1,1 @@
-build/MacOSNativeApp.app/Contents/MacOS/MacOSNativeApp
+build/TataSurya.app/Contents/MacOS/TataSurya
